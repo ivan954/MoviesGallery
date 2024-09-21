@@ -124,7 +124,7 @@ const Filters = ({
             </FormControl>
 
             <TextField
-              label="Release Date"
+              label="Minimum Release Date"
               variant="filled"
               size="small"
               type="date"
@@ -151,6 +151,9 @@ const Filters = ({
               type="number"
               value={tempFilters.runtime}
               onChange={handleFilterChange("runtime")}
+              onKeyDown={(event) => {
+                if (event.key === "Enter") handleApplyFilters();
+              }}
               fullWidth
               sx={{
                 mb: 2,
